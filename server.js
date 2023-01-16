@@ -14,12 +14,12 @@ const PORT = process.env.PORT || 3001;
 // Set up Handlebars.js engine with custom helpers
 const hbs = exphbs.create({ helpers });
 
-// const ONE_DAY_IN_MILLISECONDS = 24 * 60 * 60 * 1000
+const ONE_DAY_IN_MILLISECONDS = 24 * 60 * 60 * 1000
 
 const sess = {
   secret: process.env.DB_SECRET,
   cookie: {
-    maxAge: 300000,
+    maxAge: ONE_DAY_IN_MILLISECONDS,
     httpOnly: true,
     secure: false,
     sameSite: 'strict',
