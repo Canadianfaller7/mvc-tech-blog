@@ -4,16 +4,12 @@
     <div class="">
       <h3 class="post-title display-flex justify-space-between-lg align-center"><span>{{title}}</span> <span class="meta">Posted by {{post.user.username}} on {{format_date post.date_created}}</span></h3>
       <div class="post-content">{{description}}</div>
-      {{!-- {{#if logged_in}} --}}
-        <div class="post-comment-button">
-          <a href="/post/{{post.id}}" class="btn comment-btn">+ ADD COMMENT</a>
-        </div>
-      {{!-- {{else}}
-        <div>
-          <a href="" class="btn comment-btn">+ ADD COMMENT</a>
-        </div>
-      {{/if}} --}}
+      <div class="post-comment-button">
+        <a href="/post/{{post.id}}" class="btn comment-btn">+ ADD COMMENT</a>
+      </div>
     </div>
-  {{/each}}  
-  <a class="btn" id="create-post" href="./post">NEW POST</a>
+  {{/each}}
+  {{#if logged_in}}  
+    <a class="btn" id="create-post" href="./post">NEW POST</a>
+  {{/if}}
 </div>

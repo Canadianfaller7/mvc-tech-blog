@@ -1,26 +1,28 @@
-
-<div class='text-left' id='blog-box'>
-  <h2>{{title}}</h2>
-  <p>{{description}}</p>
-  <p>Created by {{user.username}} on {{format_date date_created}}</p>
-  <h6>Comments:</h6>
-  {{#each comments as |comment|}}
-    <div class="post-comments">
-      <ul class="post-comments">
-        <li>{{comment.comment}} - Posted by {{comment.user.username}} on {{format_date comment.date_created}}</li>
-      </ul>
+{{#if logged_in}}
+  <div class='text-left' id='blog-box'>
+    <h2>{{title}}</h2>
+    <p>{{description}}</p>
+    <p>Created by {{user.username}} on {{format_date date_created}}</p>
+    <h6>Comments:</h6>
+    {{#each comments as |comment|}}
+      <div class="post-comments">
+        <ul class="post-comments">
+          <li>{{comment.comment}} - Posted by {{comment.user.username}} on {{format_date comment.date_created}}</li>
+        </ul>
+      </div>
+    {{/each}}
+    <div class='form-group' id='comment-div'>
+      <label for='password-login'>Write a comment:</label>
+      <input class='form-input' type='text' id='comment-contents' />
+      <button
+        class='btn btn-primary'
+        id='post-btn'
+        data-id='{{id}}'
+        type='submit'
+      >Post</button>
     </div>
-  {{/each}}
-  <div class='form-group' id='comment-div'>
-    <label for='password-login'>Write a comment:</label>
-    <input class='form-input' type='text' id='comment-contents' />
-    <button
-      class='btn btn-primary'
-      id='post-btn'
-      data-id='{{id}}'
-      type='submit'
-    >Post</button>
   </div>
-</div>
-
-<script src='../js/comment.js'></script>
+  <script src='../js/comment.js'></script>
+{{else}}
+  <a href="/login">You must log in first to make a comment.</a>
+{{/if}}
