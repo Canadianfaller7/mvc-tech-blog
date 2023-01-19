@@ -54,7 +54,7 @@ router.get('/post/:id', async (req, res) => {
   }
 });
 
-router.get("/post", withAuth, (req, res) => {
+router.get("/newPost", withAuth, (req, res) => {
 	try {
 		res.render("newPost", {
 			logged_in: req.session.logged_in,
@@ -66,19 +66,37 @@ router.get("/post", withAuth, (req, res) => {
 
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: {exclude: ['password']},
-      include: [{model: Post}],
+    const postData = await Post.findAll({
+     where: {
+        user_id: req.session.user_id,
+     },
+     order: [
+      ["date_created", "DESC"],
+    ],
+     include: [
+          {
+            model: User,
+          },
+          {
+            model: Comment,
+            include: [User]
+          },
+        ],
     });
-    const user = userData.get({ plain: true });
+
+    const posts = postData.map((post) => post.get({ plain: true }));
+
     res.render('dashboard', {
-      ...user,
-      logged_in: true,
+        posts,
+        logged_in: req.session.logged_in,
     });
+
   } catch (err) {
-    res.status(500).json(err)
+      console.error(err);
+      res.status(500).json(err);
   }
-})
+});
+
 
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
