@@ -6,23 +6,19 @@
 </div>
 
 <div class="create-a-post container">
-  {{#if posts}}
-    {{#each posts as |post|}}
 
-      <form class='form update-a-post-form' data-id="{{post.id}}" data-func="update">
+      <form class='form update-a-post-form' data-id="{{id}}" data-func="update">
 
         <div class='form-group'>
-          <input class='form-input' type='text' id='update-title' value='{{post.title}}' placeholder='title' />
+          <input class='form-input' type='text' id='update-title' value='{{title}}' placeholder='title' />
         </div>
 
         <div class='form-group'>
-          <textarea class='form-input' id='update-description'>{{post.description}}</textarea>
+          <textarea class='form-input' id='update-description'>{{description}}</textarea>
         </div>
-    {{/each}}
       <div class='form-group'>
           <button class='btn' type='submit'>UPDATE POST</button>
       </div>
-  {{/if}}
         <div class='form-group'>
           <a href="/dashboard">cancel</a>
         </div>

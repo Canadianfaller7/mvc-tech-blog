@@ -29,27 +29,20 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/post/:id', withAuth, async (req, res) => {
-
-  const postId = req.params.id;
-
+router.get('/post/:id', async (req, res) => {
   try {
-    const postData = await Post.findAll({ 
-      where: { id: postId }
-    });
-    const posts = postData.map((post) => post.get({ plain: true }));
-
+    const postData = await Post.findByPk(req.params.id);
+    
+    const posts = postData.get({ plain: true });
     res.render('post', {
-      posts,
+      ...posts,
       logged_in: req.session.logged_in,
     });
-
   } catch (err) {
-    console.error(err);
-    res.status(500).json(err);
-  } 
+    res.status(500).json(err)
+  }
 });
-    
+
 router.get("/newPost", withAuth, (req, res) => {
 	try {
 		res.render("newPost", {
