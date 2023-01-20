@@ -16,16 +16,22 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 router.put('/:id', withAuth, async (req, res) => {
-  // update/edit category by id
+
+  const postId = req.params.id;
+
   try {
-    const updatePost = await Post.update(req.body, {
-      where: {
-        id: req.params.id
+    const updatedPost = await Post.update(
+      {
+      ...req.body
       },
-    });
-    res.status(200).json(updatePost)
+      {
+        where: { id: postId }
+      }
+    );
+
+    res.status(200).json(updatedPost);
   } catch (err) {
-    res.status(500).json(err)
+    res.status(400).json(err);
   }
 });
 
