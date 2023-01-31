@@ -1,12 +1,13 @@
 <div class="title-bar">
-    <h1 class="container py-2">Dashboard</h1>
+    <h1 class="container py-2">Welcome {{user.username}}!</h1>
 </div>
 
-<div class="blogroll-posts container">
+<div class="posts-containers container">
+    <h2>View your posts here:</h2>
     <!-- Loop through each of the user's posts -->
     {{#each posts as |post| }}
-        <div class="blogroll-post user-post">
-            <h3 class="post-title display-flex justify-space-between-lg align-center"><span>{{post.title}}</h3>
+        <div class="posts-container user-post">
+            <h3 class="post-title display-flex justify-space-between-lg align-center"><span>{{post.title}}</span><span class="meta">{{post.user.username}} posted on {{format_date post.date_created}}</span></h3>
             <div class="post-content">{{post.description}}</div>
             <div class="post-buttons display-flex justify-flex-end">
                 <button class="btn update-a-post" data-id="{{post.id}}" data-func="update">UPDATE POST</button>
@@ -16,6 +17,6 @@
     {{/each}}
 </div>
 <div class="text-center">
-    <a class="btn" id="create-post" href="/newPost">NEW POST</a>
+    <a class="btn col-3" id="create-post" href="/newPost">NEW POST</a>
 </div>
 <script src="/js/updatePost.js"></script>

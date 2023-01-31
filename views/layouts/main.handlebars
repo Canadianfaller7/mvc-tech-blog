@@ -15,11 +15,11 @@
       <nav>
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        <a href="/">Home</a> |
-        <a href="/dashboard">Dashboard</a> |
-        <button class="btn btn-dark" id="logout">logout</button>
+        <a href="/">Home</a>
+        <a href="/dashboard">Dashboard</a>
+        <button class="btn" id="logout">Logout</button>
         {{else}}
-        <a href="/">Home</a> |
+        <a href="/">Home</a>
         <a href="/login">login</a>
         {{/if}}
       </nav>
@@ -36,7 +36,6 @@
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
     <script src="/js/logout.js"></script>
-    {{!-- <script src="/js/comment.js"></script> --}}
   {{/if}}
   
 </body>

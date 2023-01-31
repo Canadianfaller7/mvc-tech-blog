@@ -71,7 +71,7 @@ const updateDelPost = async (e) => {
   }
 }
 
-let updateDelBtn = document.querySelector('.blogroll-posts');
+let updateDelBtn = document.querySelector('.posts-container');
 
 if(updateDelBtn) {
   updateDelBtn.addEventListener('click', updateDelPost);
