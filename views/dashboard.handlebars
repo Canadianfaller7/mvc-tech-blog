@@ -1,12 +1,15 @@
 <div class="title-bar">
     <h1 class="container py-2">Welcome {{user.username}}!</h1>
 </div>
+<div>
+    <h4>View your posts below:</h4>
+</div>
 
-<div class="posts-containers container blogroll-posts-home">
+<div class="posts-container container">
     <!-- Loop through each post in the database -->
     {{#each posts as |post| }}
-        <div class="posts-container user-post">
-            <h3 class="post-title display-flex justify-space-between-lg align-center"><span>{{title}}</span> <span class="meta">Posted by {{user.username}} on {{format_date post.date_created}}</span></h3>
+        <div class="posts-containers user-post">
+            <h3 class="post-title display-flex justify-space-between-lg align-center"><span>{{title}}</span> <span class="meta">Posted on {{format_date post.date_created}}</span></h3>
             <div class="post-content">{{description}}</div>
             <div class="post-comments">
                 <ul id="pc-{{id}}" class="post-comments">
