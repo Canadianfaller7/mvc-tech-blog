@@ -1,0 +1,170 @@
+:root {
+  --dark-gray:#323232;
+  --dark-teal:#0D7377;
+  --teal:#14FFEC;
+  --light-teal: #dcfffc;
+  --light-drk-gray: #929292;
+  --white:#fff;
+}
+
+body {
+  background-color: var(--light-teal);
+}
+
+a {
+  color: var(--white);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+  color: var(--teal);
+}
+
+
+.btn {
+  background-color: var(--light-drk-gray);
+  color:#fff;
+}
+
+.btn:hover {
+  background-color: var(--dark-gray);
+  color:var(--teal);
+  cursor: pointer;
+}
+.other-btn:hover {
+  background-color: var(--light-drk-gray);
+  color:var(--teal);
+  cursor: pointer;
+}
+
+.title-bar, .header-bar{
+  background-color: var(--light-drk-gray);
+  color: var(--white);
+  text-align: center;
+}
+
+.title-bar {
+  border-radius: 12px;
+  background-color: var(--dark-gray);
+  color:var(--teal);
+}
+
+.nav-bar {
+  text-align: left;
+  margin-left: 15px;
+}
+
+.nav-bar a, .nav-bar .btn {
+  margin:0 18px 0 16px;
+  padding:0;
+}
+
+.nav-bar a:hover, .nav-bar .btn:hover {
+  background:var(--dark-gray);
+  border-radius: 6px;
+  padding: 0 2px 0 2px;
+  cursor:pointer;
+}
+
+.login-container, .signup-container {
+  margin-top: 100px;
+}
+
+main { 
+  padding-bottom:30px; 
+}
+
+.posts-container {
+  background-color: var(--dark-gray);
+  margin:20px 0 10px; 
+  border-radius:10px;
+  color: var(--light-teal);
+  overflow:hidden;
+}
+
+.post-title {
+  background-color: var(--light-drk-gray);
+  color: var(--white);
+  font-size:1rem;
+  padding:15px 5px;
+}
+
+.post-title .meta {
+  font-weight:normal; 
+  font-size:0.8rem;
+  margin-left:20px;
+  text-align:right;
+}
+
+.post-content {
+  padding:5px 15px 35px;
+}
+
+.post-comments {
+  padding:10px 10px;
+}
+
+.post-comments ul {
+  margin:0;
+  padding:0;
+}
+
+.post-comments ul li {
+  list-style:none;
+  margin:10px 0 10px;
+  background-color: var(--light-teal);
+  padding:10px 15px;
+  color: var(--dark-gray);
+  border-radius:12px;
+}
+
+.post-comments ul li .meta {
+  padding-top:10px;
+  font-size:.8rem;
+  margin-left:20px;
+  text-align:right;
+}
+
+#create-post { 
+  margin-top:25px;
+  cursor:pointer; 
+}
+
+#create-post,
+.comment-btn {
+  min-width:176px;
+}
+
+#newpost-title {
+  font-weight:bold;
+}
+
+.posts-containers .post-buttons,
+.post-comment-button,
+.post-comment-form {
+  padding:0 25px 15px 25px;
+}
+
+.post-comment-button {
+  text-align:center;
+}
+
+.post-comment-form {
+  display:none;
+}
+
+.posts-containers .post-buttons .btn {
+  margin-left:10px;
+  font-size: 12.5px;
+}
+
+.user-login, 
+.user-registration,
+.create-a-post {
+  padding:40px 0 0 0; 
+}
+
+.create-a-post textarea {
+  height:160px;
+}

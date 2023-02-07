@@ -41,7 +41,7 @@ const commentOnPost = async (e) => {
       });
 
       if(saveResponse.ok) {
-        const anchoredPage = '/#blogpost-' + comPostId;
+        const anchoredPage = `/#post-${comPostId}`;
         document.location.reload();
         document.location.replace(anchoredPage);
       } else {
@@ -56,7 +56,7 @@ const commentOnPost = async (e) => {
 
 // document.querySelector('#make-comment').addEventListener('click', showCommentForm);
 
-var homePosts = document.querySelector('.blogroll-posts-home');
+var homePosts = document.querySelector('.home-posts');
 if(homePosts) {
   homePosts.addEventListener('click', commentOnPost);
 } 

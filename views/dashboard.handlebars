@@ -1,31 +1,31 @@
-<div class="title-bar">
-    <h1 class="container py-2">Welcome {{user.username}}!</h1>
-</div>
-<div>
-    <h4>View your posts below:</h4>
+<div class="header-bar">
+    <h1 class="ml-3 py-2">Welcome {{user.username}}!</h1>
 </div>
 
-<div class="posts-container container">
+<div class="posts-containers container">
+    <div>
+        <h5 class="py-2">View your posts below:</h5>
+    </div>
     <!-- Loop through each post in the database -->
     {{#each posts as |post| }}
-        <div class="posts-containers user-post">
-            <h3 class="post-title display-flex justify-space-between-lg align-center"><span>{{title}}</span> <span class="meta">Posted on {{format_date post.date_created}}</span></h3>
+        <div class="posts-container user-post">
+            <h4 class="post-title display-flex justify-space-between-lg align-center"><span>{{title}}</span> <span class="meta col-md-auto">Posted on {{format_date post.date_created}}</span></h4>
             <div class="post-content">{{description}}</div>
             <div class="post-comments">
                 <ul id="pc-{{id}}" class="post-comments">
                     {{#each comments as |comment|}}
-                    <li>{{comment.comment}} <div class="meta">&mdash; {{comment.user.username}} on {{format_date comment.date_created}}</div>
+                        <li>{{comment.comment}} <div class="meta">&mdash; {{comment.user.username}} on {{format_date comment.date_created}}</div>
                     {{/each}}</li>
                 </ul>
             </div>
             <div class="post-buttons display-flex justify-flex-end">
-                <button class="btn update-a-post" data-id="{{post.id}}" data-func="update">UPDATE POST</button>
-                <button class="btn delete-a-post" data-id="{{post.id}}" data-func="delete">DELETE</button>
+                <button class="btn update-post other-btn" data-id="{{post.id}}" data-func="update">UPDATE POST</button>
+                <button class="btn delete-post other-btn" data-id="{{post.id}}" data-func="delete">DELETE</button>
             </div>
         </div>
     {{/each}}
-</div>
-<div class="text-center">
-  <a class="btn col-3" id="create-post" href="/newPost">NEW POST</a>
+    <div class="text-center">
+        <a class="btn col-6" id="create-post" href="/newPost">NEW POST</a>
+    </div>
 </div>
 <script src="/js/updatePost.js"></script>

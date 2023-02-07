@@ -78,7 +78,7 @@ if(updateDelBtn) {
 } 
 
 
-let updatePostBtn = document.querySelector('.update-a-post-form');
+let updatePostBtn = document.querySelector('.update-post-form');
 
 if(updatePostBtn) {
   updatePostBtn.addEventListener('submit', updatePost);

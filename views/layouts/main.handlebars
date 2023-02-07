@@ -10,28 +10,25 @@
 </head>
 
 <body>
-  <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
-      <nav>
-        <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
-        <a href="/">Home</a>
-        <a href="/dashboard">Dashboard</a>
-        <button class="btn" id="logout">Logout</button>
-        {{else}}
-        <a href="/">Home</a>
-        <a href="/login">login</a>
-        {{/if}}
-      </nav>
-    </header>
-    <main class="container container-fluid mt-5">
-      <!-- Render the sub layout -->
-      {{{ body }}}
-    </main>
-    <footer>
-      
-    </footer>
-  </div>
+  <header class="p-2 header-bar">
+    <nav class="nav-bar">
+      <!-- Conditionally render login or logout links -->
+      <a href="/">Home</a>
+      {{#if logged_in}}
+      <a href="/dashboard">Dashboard</a>
+      <button class="btn" id="logout">Logout</button>
+      {{else}}
+      <a href="/login">Login</a>
+      {{/if}}
+    </nav>
+  </header>
+  <main>
+    <!-- Render the sub layout -->
+    {{{ body }}}
+  </main>
+  <footer>
+    
+  </footer>
 
   <!-- Render script for logged in users only -->
   {{#if logged_in}}

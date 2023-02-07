@@ -1,32 +1,31 @@
-<div class="title-bar">
+<div class="header-bar">
     <h1 class="container py-2">The Tech Blog</h1>
 </div>
 
-<div class="container blogroll-posts blogroll-posts-home">
+<div class="container posts-containers home-posts">
   {{#if logged_in}}  
     <!-- Loop through each post in the database -->
     {{#each posts as |post| }}
-        <div id="blogpost-{{id}}" class="posts-container">
-            <h3 class="post-title display-flex justify-space-between-lg align-center" data-id="{{id}}"><span>{{title}}</span> <span class="meta">Posted by {{post.user.username}} on {{format_date post.date_created}}</span></h3>
+        <div id="post-{{id}}" class="posts-container">
+            <h3 class="post-title display-flex justify-space-between-lg align-center" data-id="{{id}}"><span>{{title}}</span> <span class="meta col-md-auto">Posted by {{post.user.username}} on {{format_date post.date_created}}</span></h3>
             <div class="post-content">{{description}}</div>
             <div class="post-comments">
                 <ul id="pc-{{id}}" class="post-comments">
                     {{#each comments as |comment|}}
                     <li>{{comment.comment}} <div class="meta">&mdash; {{comment.user.username}} on {{format_date comment.date_created}}</div>
-                    <h6>delete</h6>
                     {{/each}}</li>
                 </ul>
             </div>
             <div class="post-comment-button">
-                <button class="btn comment-btn col-3" data-id="{{id}}" data-func="add-comment">+ ADD COMMENT</button>
+                <button class="btn other-btn col-md-auto" data-id="{{id}}" data-func="add-comment">+ ADD COMMENT</button>
             </div>
-            <div class="post-comment-form-outer post-comment-form-{{id}}">
+            <div class="post-comment-form post-comment-form-{{id}}">
                 <form class="form comment-form">
                     <div class="form-group">
                         <textarea class="form-input new-comment-{{id}}" data-id="{{id}}" data-func="write-comment"></textarea>
                     </div>
-                    <div class="form-group">
-                        <button class="btn" type="submit" data-id="{{id}}" data-func="submit-comment">SUBMIT</button>
+                    <div class="form-group ">
+                        <button class="btn other-btn col-md-auto" type="submit" data-id="{{id}}" data-func="submit-comment">SUBMIT</button>
                     </div>
                 </form>
             </div>
@@ -34,12 +33,12 @@
     {{/each}}
 </div>
 <div class="text-center">
-  <a class="btn col-3" id="create-post" href="/newPost">NEW POST</a>
+  <a class="btn col-6" id="create-post" href="/newPost">NEW POST</a>
 </div>
 <script src="./js/comments.js"></script>
   {{else}}
   {{#each posts as |post| }}
-        <div id="blogpost-{{id}}" class="posts-container">
+        <div id="post-{{id}}" class="posts-container">
             <h3 class="post-title display-flex justify-space-between-lg align-center" data-id="{{id}}"><span>{{title}}</span> <span class="meta">Posted by {{post.user.username}} on {{format_date post.date_created}}</span></h3>
             <div class="post-content">{{description}}</div>
             <div class="post-comments">
@@ -50,7 +49,7 @@
                 </ul>
             </div>
             <div class="post-comment-button">
-              <a href="/login" class="btn comment-btn col-3" >Login to make a comment</a>
+              <a href="/login" class="btn other-btn col-md-auto-auto" >Login to make a comment</a>
             </div>
         </div>
     {{/each}}

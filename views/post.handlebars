@@ -1,27 +1,36 @@
 <!-- display registration form if user is not logged in -->
 <!-- otherwise they get to create new posts as a registered user -->
 
-<div class="title-bar">
-    <h1 class="container py-2">Update Post</h1>
+
+<div class='create-a-post container'>
+  <div class='title-bar'>
+    <h1 class='container py-2'>Update Post</h1>
+  </div>
+
+  <form class='form update-post-form' data-id='{{id}}' data-func='update'>
+
+    <div class='form-group'>
+      <input
+        class='form-input'
+        type='text'
+        id='update-title'
+        value='{{title}}'
+        placeholder='title'
+      />
+    </div>
+
+    <div class='form-group'>
+      <textarea
+        class='form-input'
+        id='update-description'
+      >{{description}}</textarea>
+    </div>
+    <div class='form-group'>
+      <button class='btn col-md-auto' type='submit'>UPDATE POST</button>
+    </div>
+    <div class='form-group'>
+      <a href='/dashboard' class="btn col-md-auto">CANCEL</a>
+    </div>
+  </form>
 </div>
-
-<div class="create-a-post container">
-
-      <form class='form update-a-post-form' data-id="{{id}}" data-func="update">
-
-        <div class='form-group'>
-          <input class='form-input' type='text' id='update-title' value='{{title}}' placeholder='title' />
-        </div>
-
-        <div class='form-group'>
-          <textarea class='form-input' id='update-description'>{{description}}</textarea>
-        </div>
-      <div class='form-group'>
-          <button class='btn' type='submit'>UPDATE POST</button>
-      </div>
-        <div class='form-group'>
-          <a href="/dashboard">CANCEL</a>
-        </div>
-      </form>
-</div>
-<script src="/js/updatePost.js"></script>
+<script src='/js/updatePost.js'></script>
