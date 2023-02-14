@@ -66,7 +66,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
         user_id: req.session.user_id,
      },
      order: [
-      ["date_created", "DESC"],
+      ["date_created", "ASC"],
     ],
      include: [
           {
