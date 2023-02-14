@@ -2,63 +2,56 @@
 const commentOnPost = async (e) => {
     
   e.stopPropagation();
-  var comPost = e.target;
-  var comPostId = comPost.getAttribute('data-id');
-  var comPostFunc = comPost.getAttribute('data-func');
-  var commentForm = document.querySelector(".post-comment-form-" + comPostId);
-  var commentTextarea = document.querySelector(".new-comment-" + comPostId);
+  let postComment = e.target;
+  let postCommentId = postComment.getAttribute('data-id');
+  let postCommentFunc = postComment.getAttribute('data-func');
+  let commentForm = document.querySelector(".post-comment-form-" + postCommentId);
+  let commentTextarea = document.querySelector(".new-comment-" + postCommentId);
 
 
-  switch (comPostFunc) {
-    case 'add-comment':
-      commentForm.setAttribute("style", "display:block");
-      e.target.innerHTML = "- CANCEL";
-      comPost.setAttribute("data-func", "cancel");
-      commentTextarea.focus();
-      break;
-  
-    case 'cancel':
-      commentForm.setAttribute("style", "display:none");
-      e.target.innerHTML = "+ ADD COMMENT";
-      comPost.setAttribute("data-func", "add-comment");
-      break;
-
-    case 'submit-comment':
-      e.preventDefault();
-      var comment_body = commentTextarea.value;
-
-      const newComment = {
-        'comment': comment_body,
-        'post_id': comPostId
-      }
-
-      const saveResponse = await fetch('/api/comments', {
-        method: 'POST',
-        body: JSON.stringify(newComment),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
-
-      if(saveResponse.ok) {
-        const anchoredPage = `/#post-${comPostId}`;
-        document.location.reload();
-        document.location.replace(anchoredPage);
-      } else {
-        alert('Failed to save comment');
-      }
-      break;
-      
-    default:
-      break;
+  if(postCommentFunc === 'add-comment') {
+    commentForm.setAttribute("style", "display:block");
+    e.target.innerHTML = "- CANCEL";
+    postComment.setAttribute("data-func", "cancel");
+    commentTextarea.focus();
+    return;
   }
+
+  if(postCommentFunc === 'cancel') {
+    commentForm.setAttribute("style", "display:none");
+    e.target.innerHTML = "+ ADD COMMENT";
+    postComment.setAttribute("data-func", "add-comment");
+    return;
+  }
+
+  if(postCommentFunc === 'submit-comment') {
+    e.preventDefault();
+    let comment = commentTextarea.value;
+
+    const newComment = {
+      'comment': comment,
+      'post_id': postCommentId
+    }
+
+    const saveResponse = await fetch('/api/comments', {
+      method: 'POST',
+      body: JSON.stringify(newComment),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if(saveResponse.ok) {
+      const anchoredPage = `/#post-${postCommentId}`;
+      document.location.reload();
+      document.location.replace(anchoredPage);
+    } else {
+      alert('Failed to save comment');
+    }
+  }
+  return alert('Error');;
 }
 
-// document.querySelector('#make-comment').addEventListener('click', showCommentForm);
-
-var homePosts = document.querySelector('.home-posts');
-if(homePosts) {
-  homePosts.addEventListener('click', commentOnPost);
-} 
+document.querySelector('.home-posts').addEventListener('click', commentOnPost); 
 
 
