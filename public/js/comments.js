@@ -49,7 +49,7 @@ const commentOnPost = async (e) => {
       alert('Failed to save comment');
     }
   }
-  return alert('Error');;
+  return;
 }
 
 document.querySelector('.home-posts').addEventListener('click', commentOnPost); 
