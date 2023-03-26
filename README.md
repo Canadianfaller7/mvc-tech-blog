@@ -1,9 +1,6 @@
 # MVC Tech Blog
 - [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## MVC Tech Blog
-* https://techmvcblog.herokuapp.com/
-
 ## Description
 - This is an MVC application built from scratch utilizing my skills with Express, Sequelize, and Handlebars.
 - This is an application that works both on mobile and desktop, where you can create blog posts and make comments on others posts to share yiur thoughts and interests with them.
@@ -28,7 +25,6 @@ If your README is long, add a table of contents to make it easy for users to fin
 
 ## Usage
 - This is a blog where you can talk about tech with your buddies or just about anything you'd like!
-* [MVC Tech Blog Site](https://techmvcblog.herokuapp.com/ "Named link title")
 * [Note Taker](https://github.com/canadianfaller7/mvc-tech-blog/ "Named link title")
 
 
