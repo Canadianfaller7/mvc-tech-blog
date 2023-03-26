@@ -3,7 +3,7 @@
 
 ## Description
 - This is an MVC application built from scratch utilizing my skills with Express, Sequelize, and Handlebars.
-- This is an application that works both on mobile and desktop, where you can create blog posts and make comments on others posts to share yiur thoughts and interests with them.
+- This is an application that works both on mobile and desktop, where you can create blog posts and make comments on others posts to share your thoughts and interests with them.
 
 * [MVC Tech Blog](https://github.com/canadianfaller7/mvc-tech-blog/ "Named link title")
 
